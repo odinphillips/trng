@@ -1,0 +1,3 @@
+[submodule "3rdParty/portaudio"]
+	path = 3rdParty/portaudio
+	url = git://git.assembla.com/portaudio.git
