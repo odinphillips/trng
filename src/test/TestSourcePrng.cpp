@@ -64,7 +64,9 @@ int writeBufferToFile(char *buffer, int size, const char* filename) {
     myfile.open(filename, ios::out | ios::trunc | ios::binary);
     myfile.write(buffer, size);
     myfile.close();
+    return 0;
 }
+
 
 TEST(SourcePrng, Read4K) {
     SourcePrng src;
@@ -80,6 +82,7 @@ TEST(SourcePrng, Read4K) {
     cr->run();
     
     auto strs = cr->getOutStrings(',');
+    
     // TODO: remove debug code below.
     // for (const auto& str : strs) {
     //     cout << str << endl;
@@ -88,9 +91,11 @@ TEST(SourcePrng, Read4K) {
     EntValuesType entValues = toEntValues(strs, ENT_FIELD_OFFSET);
     ASSERT_EQ(entValues.fileBytes, 4096);
     ASSERT_GE(entValues.entropy, 7.93) << "Entropy is too low!";
+    
     // TODO: the rest...
     // ASSERT_GE(entValues.chiSquare)
 }
+
 
 int main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);
