@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.5)
 
 set(SRCS
     SourcePrng.cpp
+    SourceAudio.cpp
 )
 
 add_library(trng ${SRCS})
